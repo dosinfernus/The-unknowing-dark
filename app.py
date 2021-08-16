@@ -1,15 +1,23 @@
 import pygame, random
 import pandas as pd
+from PIL import Image
 
 pygame.init()
 pygame.display.set_caption('Sub!')
 WIDTH = 600
 HEIGHT = 600
 BORDER = 20
-bgColor = pygame.Color("black")
-fgColor = pygame.Color("blue")
+FRAMERATE = 120
+bgColor = Image.open("grid.png")
+clock = pygame.time.Clock()
 
 screen = pygame.display.set_mode((WIDTH,HEIGHT))
-pygame.draw.rect(screen, fgColor, pygame.Rect(0,0,WIDTH-BORDER,BORDER))
-pygame.draw.rect(screen, fgColor, pygame.Rect(0,0,BORDER,HEIGHT))
-pygame.draw.rect(screen, fgColor, pygame.Rect(0,HEIGHT-BORDER,WIDTH-BORDER,BORDER))
+
+
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+    clock.tick( FRAMERATE )
+    pygame.display.flip()
