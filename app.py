@@ -1,18 +1,16 @@
 import pygame, random
-import pandas as pd
-from PIL import Image
 
 pygame.init()
 pygame.display.set_caption('Sub!')
-WIDTH = 600
-HEIGHT = 600
+WIDTH = 601
+HEIGHT = 601
 BORDER = 20
 FRAMERATE = 120
-bgColor = Image.open("grid.png")
+bgColor = pygame.transform.smoothscale(pygame.image.load("grid.png"), (600,600))
 clock = pygame.time.Clock()
 
 screen = pygame.display.set_mode((WIDTH,HEIGHT))
-
+screen.blit(bgColor, (0,0))
 
 running = True
 while running:
